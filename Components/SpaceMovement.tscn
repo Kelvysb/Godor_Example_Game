@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkgny76firha1"]
+
+[ext_resource type="Script" path="res://Components/SpaceMovement.gd" id="1_sxbar"]
+
+[node name="SpaceMovement" type="Node3D"]
+script = ExtResource("1_sxbar")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Camera" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1, 0.000498198, -0.000736885, -0.000498219, 1, -2.90077e-05, 0.000736871, 2.93748e-05, 1, 0, 0.5, 0)

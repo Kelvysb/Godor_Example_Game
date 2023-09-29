@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://buk0mg4sll85m"]
+
+[ext_resource type="PackedScene" uid="uid://bbukpy0hd4tr2" path="res://Components/TpMovement.tscn" id="1_owdxn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pkcvw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_c11p7"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l8g28"]
+
+[node name="BasePlayer" type="CharacterBody3D"]
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_pkcvw")
+
+[node name="Geometry" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_c11p7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(0.833234, 0, 0, 0, -1.45421e-08, 0.355574, 0, -0.332686, -1.55427e-08, 0, 0.517787, -0.320811)
+mesh = SubResource("CylinderMesh_l8g28")
+
+[node name="TpMovement" parent="." node_paths=PackedStringArray("Geometry") instance=ExtResource("1_owdxn")]
+Geometry = NodePath("../Geometry")
