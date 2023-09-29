@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm0m3rjenllot"]
+
+[ext_resource type="Script" path="res://Objects/rapport_wall.gd" id="1_406fr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2uw6l"]
+size = Vector3(1, 19.5058, 5.60625)
+
+[node name="RapportWall" type="Area3D"]
+script = ExtResource("1_406fr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2uw6l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
