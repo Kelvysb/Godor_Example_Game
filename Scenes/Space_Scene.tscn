@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://b1tmcrwoxeip0"]
+[gd_scene load_steps=15 format=3 uid="uid://b1tmcrwoxeip0"]
 
 [ext_resource type="PackedScene" uid="uid://cgk7mdc0vv8id" path="res://Players/SpacePlayer.tscn" id="1_3gegc"]
+[ext_resource type="PackedScene" uid="uid://dhlefpmbc76nj" path="res://Objects/rock.tscn" id="2_338m1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cwcp2"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -47,10 +48,6 @@ albedo_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_osub6"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_1qwo1"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_mccr1"]
 
 [node name="SS_Scene" type="Node3D"]
 
@@ -113,17 +110,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gs88k")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpaceMapMap/Wall4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_osub6")
 
-[node name="Rock1" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.09834, 9.83508, 0)
-mass = 200.0
-gravity_scale = 0.0
-linear_velocity = Vector3(5, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Rock1"]
-shape = SubResource("SphereShape3D_1qwo1")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Rock1"]
-mesh = SubResource("SphereMesh_mccr1")
-
 [node name="SpacePlayer" parent="." instance=ExtResource("1_3gegc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.14008, 0)
+
+[node name="Rock" parent="." instance=ExtResource("2_338m1")]
+
+[node name="Rock2" parent="." instance=ExtResource("2_338m1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90166, 12.8351, 0)
+
+[node name="Rock3" parent="." instance=ExtResource("2_338m1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.75546, 5.37852, 0)
+
+[node name="Rock4" parent="." instance=ExtResource("2_338m1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0059, 5.0268, 0)
+
+[node name="Rock5" parent="." instance=ExtResource("2_338m1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.22801, 2.14266, 0)

@@ -4,7 +4,7 @@ extends Node3D
 @export var Speed : float = 7.0
 @export var SprintSpeed : float = 10.0
 @export var JumpSpeed : float = 6.0
-@export var RotationSpeed : float = 5.0
+@export var RotationSpeed : float = 2.0
 @export var MouseSensitivity : float = 0.05
 @export var CameraHeight : float = 0.5
 @export var CameraDistance : float = 5.0

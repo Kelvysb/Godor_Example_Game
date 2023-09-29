@@ -20,6 +20,7 @@ signal Jump()
 signal Falling()
 signal Landed()
 
+@onready var front = $Front
 @onready var parent = $".." as CharacterBody3D
 @onready var CameraPivot = $Pivot as SpringArm3D
 
@@ -86,13 +87,13 @@ func HandleMovement(delta):
 		if direction:
 			parent.velocity.x = direction.x * currentSpeed
 			parent.velocity.z = direction.z * currentSpeed
+			var prev_y = Geometry.rotation.y
+			Geometry.look_at(Vector3(parent.position.x, parent.position.y, parent.position.z) + direction)
+			var target_y = Geometry.rotation.y
+			Geometry.rotation.y = lerp_angle(prev_y, target_y, delta * TurnSpeed)
 		else:
 			parent.velocity.x = move_toward(parent.velocity.x, 0, Speed)
 			parent.velocity.z = move_toward(parent.velocity.z, 0, Speed)
-		var prev_y = Geometry.rotation.y
-		Geometry.look_at(Vector3(parent.position.x, parent.position.y, parent.position.z) + direction)
-		var target_y = Geometry.rotation.y
-		Geometry.rotation.y = lerp_angle(prev_y, target_y, delta * TurnSpeed)
 
 func HandleCameraMovement(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
